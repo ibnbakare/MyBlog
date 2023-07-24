@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link';
-  import React from 'react'
+import React from 'react'
+import styles from "./navbar.module.css"
 
   const links = [
     {
@@ -38,7 +39,7 @@ import Link from 'next/link';
   
   const Navbar = () => {
     return (
-      <div>
+      <div className={styles.container}>
         <div>
         <Link href="/" >Hello</Link>
         </div>
