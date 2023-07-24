@@ -40,10 +40,10 @@ import styles from "./navbar.module.css"
   const Navbar = () => {
     return (
       <div className={styles.container}>
-        <div>
+        <div className={styles.logo}>
         <Link href="/" >Hello</Link>
         </div>
-        <div>
+        <div className={styles.links}>
           {links.map(link =>(
 
             <Link href={link.url} key={link.id}>
