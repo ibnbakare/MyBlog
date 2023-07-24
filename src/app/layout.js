@@ -14,10 +14,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
    
       <body className={inter.className}>
-      <Navbar />
+      <div className='container'>
+       <Navbar />
         {children}
         <h3 style={{marginTop:"12px"}}>Footer</h3>
+        </div>
         </body>
+      
     </html>
   )
 }
