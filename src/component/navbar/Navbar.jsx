@@ -51,7 +51,8 @@ import styles from "./navbar.module.css"
             </Link>
 
           ))}
-          <button onClick={()=>console.log("out")} >Log out</button>
+          <button className={styles.logout}
+          onClick={()=>console.log("out")} >Log out</button>
 
         </div>
       </div>

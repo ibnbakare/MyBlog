@@ -18,14 +18,14 @@ a {
 
 .container{
   min-height: 100vh;
-  min-width: 90vh;
-  margin: 0 auto;
-  padding: 0 60px;
+  max-width: 1366px;
+  margin: 0 auto%;
+  padding: 0 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   
-  border: 1px solid #555;
+  border: 2px solid plum;
   /* padding: 0 60px; */
 
 

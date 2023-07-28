@@ -1,6 +1,7 @@
 import Navbar from '@/component/navbar/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Footer from '@/component/footer/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,7 @@ export default function RootLayout({ children }) {
       <div className='container'>
        <Navbar />
         {children}
-        <h3 style={{marginTop:"12px"}}>Footer</h3>
+       <Footer />
         </div>
         </body>
       
