@@ -5,7 +5,7 @@ import Button from '@/component/button/button'
 
 const About = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.imgContent}>
         <Image src="https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         fill={true}

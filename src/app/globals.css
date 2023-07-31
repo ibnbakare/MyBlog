@@ -16,17 +16,28 @@ a {
   color: inherit;
 }
 
-.container{
+.containers{
   min-height: 100vh;
   max-width: 1366px;
-  margin: 0 auto%;
-  padding: 0 80px;
+  margin: 0 auto;
+  /* padding: 0 80px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   
-  border: 2px solid plum;
+ 
   /* padding: 0 60px; */
 
 
+}
+
+.container {
+  max-width: 1366px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid turquoise;
 }
