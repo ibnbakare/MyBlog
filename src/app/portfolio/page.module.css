@@ -1,4 +1,36 @@
+.mainTitle{
+    font-size: 80px;
+}
+
 .container{
-    background-color: aqua;
-    color: blueviolet;
+    margin-bottom: 10px;
+    
+}
+
+.items{
+    display: flex;
+    gap: 50px;
+}
+.item{
+    border: 3px solid #bbb;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    border-radius: 3px;
+    background-size: cover !important;
+}
+.item:nth-child(1){
+    background: url("/illustration.png");
+}
+
+.title{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    font-size: 19px;
+}
+
+.item:hover .title{
+    color: aqua;
+    transform: scale(1.2) ;
 }
