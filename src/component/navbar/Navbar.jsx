@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react'
 import styles from "./navbar.module.css"
+import Darktoggleicon from '../darktoggle/Darktoggleicon';
 
   const links = [
     {
@@ -44,6 +45,8 @@ import styles from "./navbar.module.css"
         <Link href="/" >Hello</Link>
         </div>
         <div className={styles.links}>
+          {/* <DarkToggle /> */}
+        <Darktoggleicon />
           {links.map(link =>(
 
             <Link href={link.url} key={link.id}>

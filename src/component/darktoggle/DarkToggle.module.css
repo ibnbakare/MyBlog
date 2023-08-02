@@ -1,0 +1,25 @@
+.container{
+    width: 42px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    border: 1px solid aqua;
+    border-radius: 30%;
+    position: relative;
+
+    font-size: 12px;
+}
+
+.icon{
+    font-weight: 100;
+}
+
+.ball{
+    width: 20px;
+    height: 20px;
+    background-color: aqua;
+    border-radius: 50%;
+    position: absolute;
+}
