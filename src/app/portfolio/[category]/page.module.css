@@ -1,0 +1,33 @@
+.title{
+    text-transform: capitalize;
+    margin: 20px 0;
+}
+
+.items{
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+}
+.items:nth-child(2n){
+    flex-direction: row-reverse;
+}
+.imgContent{
+    position: relative;
+    flex: 1;
+    height: 400px;
+    width: 100%;
+
+}
+.img{
+    object-fit: cover;
+   
+}
+.textContent{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content: center;
+}

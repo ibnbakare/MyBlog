@@ -6,6 +6,9 @@
     margin-bottom: 10px;
     
 }
+.headTitle{
+    margin: 20px 0;
+}
 
 .items{
     display: flex;
@@ -22,6 +25,13 @@
 .item:nth-child(1){
     background: url("/illustration.png");
 }
+.item:nth-child(2){
+    background: url("/websites.jpg");
+}
+.item:nth-child(3){
+    background: url("/apps.jpg");
+}
+
 
 .title{
     position: absolute;
@@ -34,3 +44,4 @@
     color: aqua;
     transform: scale(1.2) ;
 }
+
