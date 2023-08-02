@@ -1,12 +1,12 @@
 .btn{
    
     width: fit-content;
-    padding: 20px;
+    padding: 15px;
     border-radius: 9px;
     border: none;
     color: wheat;
     cursor: pointer;
     background-color: #53c28b;
     margin: 0 auto;
-  
+    
 }

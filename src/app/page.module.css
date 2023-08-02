@@ -20,7 +20,17 @@
   
   
 
+  animation: move 3s infinite ease alternate;
 }
+@keyframes move{
+    from{
+        transform: translateY(-20px);
+    }
+    to{
+        transform: translateY(10);
+    }
+}
+
 .title{
 font-size: 70px;
 background: linear-gradient(to bottom, #194c33, #bbb );
