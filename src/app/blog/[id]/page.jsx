@@ -1,16 +1,35 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from "./page.module.css"
+import {notFound} from "next/navigation"
 
-const BlogInfo = () => {
+async function getData(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    return notFound()
+  }
+ 
+  return res.json()
+}
+
+const BlogInfo = async({params}) => {
+  const {id} = params
+  const data = await getData(id)
+  
+  console.log(data)
   return (
     <div className={styles.container}>
+     
       <div className={styles.top}>
         <div className={styles.info}>
-          <h1 className={styles.title}>Title</h1>
+          <h1 className={styles.title}>   {data.title}</h1>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ad, quas optio voluptas nihil voluptates quod quo tempore velit!
-
+    
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, harum? Numquam labore impedit explicabo, repellat assumenda laudantium facilis quaerat corporis quidem, a error voluptatum tenetur nihil tempore iusto debitis unde.
           </p>
           <div className={styles.author}>
             <Image
@@ -40,6 +59,8 @@ const BlogInfo = () => {
 
         </p>
       </div>
+
+      
     </div>
   )
 }
