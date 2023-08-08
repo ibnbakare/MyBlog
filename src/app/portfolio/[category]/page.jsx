@@ -4,7 +4,6 @@ import Button from '@/component/button/button'
 import Image from 'next/image'
 import{items} from "./data"
 import { notFound } from 'next/navigation'
-
 const getData = (cat)=>{
   const data = items[cat]
 
@@ -13,12 +12,15 @@ const getData = (cat)=>{
 
   }
   else{
-    return notFound
-  }
-}
+    return notFound()
+  
+}}
+
 
 const Portfoilocategory = ({params}) => {
   console.log(params)
+ 
+  // console.log(data)
   // const{category} = params
   // const data = items[category]
   // console.log(data)

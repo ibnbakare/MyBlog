@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import useSWR from "swr"
-
+import styles from "./page.module.css"
 
 const Dashboard = () => {
   // const [data, setData] = useState([])
@@ -27,10 +27,14 @@ const Dashboard = () => {
   //     getData()
   //   }, [])
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR(`https://jsonplaceholder.typicode.com/posts/`, fetcher)
-    console.log( data)
+  const { data, error, isLoading } = useSWR("https://jsonplaceholder.typicode.com/posts/", fetcher)
+    console.log(data)
   return (
-    <div>Dashborad</div>
+    <div  className={styles.container}>
+      <div className={styles.divA} ><span className={styles.names}>rb</span></div>
+      <div className={styles.divB} >ridhwan</div>
+      <div></div>
+    </div>
   )
 }
 

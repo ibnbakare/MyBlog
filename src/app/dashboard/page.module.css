@@ -1,0 +1,17 @@
+.container{
+display: flex;
+align-items: center;
+}
+.divA{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.names{
+   
+    /* align-content: center; */
+}
