@@ -1,22 +1,44 @@
-import user from "@/models/User"
+import User from "@/models/User"
 import connect from "@/utils/db"
 import { NextResponse } from "next/server"
+import bcrypt from "bcryptjs"
+
 
 
 export const POST = async(request)=>{
-await connect()
+
 try {
-    // get data from client
-    const {name,email,password} = await request.json()
+    await connect()
 
-    if(!name || !email||!password){
-        return NextResponse.json({body:"Please fill all the fields"},{status:401})
-    }
+   // get data from client
    
+   const reqBody= await request.json()
+   const {name,email,password} = reqBody
+   console.log(reqBody)
 
-    console.log(request.json)
-    return NextResponse.json({msg:"created"},{status:201})
+// check if email exists
+const user = await User.findOne({email})
+if(user){
+    return NextResponse.json({msg:"email exist before, trying loging in"}, {status:401})
+}
+
+   const salt = await bcrypt.genSalt(10)
+   const hashedPassword = await bcrypt.hash(password, salt)
+
+   const newUser = new User({
+       name,
+       email,
+       password:hashedPassword
+   })
+
+   console.log(request.json)
+   await newUser.save()
+   return NextResponse.json({
+    message: "User created successfully",
+    success: true,
+    newUser
+})
 } catch (error) {
-    return NextResponse.json({msg:error},{status:500})
+    return  NextResponse.json({msg:"can not create"},{status:500})
 }
 }
