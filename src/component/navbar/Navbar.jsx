@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react'
 import styles from "./navbar.module.css"
 import Darktoggleicon from '../darktoggle/Darktoggleicon';
+import { signOut, useSession } from 'next-auth/react';
 
   const links = [
     {
@@ -39,6 +40,8 @@ import Darktoggleicon from '../darktoggle/Darktoggleicon';
 
   
   const Navbar = () => {
+    const {status} = useSession()
+    
     return (
       <div className={styles.container}>
         <div className={styles.logo}>
@@ -54,9 +57,10 @@ import Darktoggleicon from '../darktoggle/Darktoggleicon';
             </Link>
 
           ))}
+{status == "authenticated" &&
           <button className={styles.logout}
-          onClick={()=>console.log("out")} >Log out</button>
-
+          onClick={signOut}>Log out</button>
+          }
         </div>
       </div>
     )
