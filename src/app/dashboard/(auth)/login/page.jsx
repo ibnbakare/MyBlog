@@ -1,17 +1,25 @@
 "use client"
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import React from 'react'
-
+import styles from "./page.module.css"
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 const page = () => {
+  const router = useRouter()
+  const {data,status} = useSession()
+  const handleForm = async (e)=>{
+    e.preventDefault()
+   
+    const email = e.target[0].value
+    const password = e.target[1].value
+    signIn("credentials", {email,password}) 
+    if(status === 'authenticated') { router.push("/dashboard")}
+  }
   return (
     <div>
        <div >
         <form className={styles.container} onSubmit={handleForm}>
-            <input type='text' 
-            required
-            placeholder='username'
-            className={styles.input}
-            />
+           
             <input type='text' 
             required
             placeholder='email'
@@ -26,8 +34,8 @@ const page = () => {
             <button className={styles.button} > Register</button>
             
         </form>
-        {err && "Something Went Wrong"}
-        <Link href="/login" > Click here if registered</Link>
+  
+        <Link href="/dashboard/register" > Click here to register</Link>
     </div>
         <button onClick={() => signIn("google")} >Sign in With Google</button>
     </div>

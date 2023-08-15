@@ -37,7 +37,7 @@ if(user){
     message: "User created successfully",
     success: true,
     newUser
-})
+},{status:201})
 } catch (error) {
     return  NextResponse.json({msg:"can not create"},{status:500})
 }

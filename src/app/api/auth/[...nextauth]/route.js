@@ -13,12 +13,15 @@ const handler = NextAuth({
     }),
 
     CredentialsProvider({
-      name:Credentials,
-      id:credentials,
-      async authorized(credentials){
-        await connect()
+      name:"Credentials",
+      id:"credentials",
+      async authorize(credentials){
+        console.log(credentials.email)
+        
         try {
-          const user = User.findOne({email:credentials.email})
+          await connect()
+          const user = await User.findOne({email:credentials.email})
+          console.log(user)
           if(user){
             const isPasswordValid = await bcrypt.compare(
               credentials.password,user.password)
@@ -40,5 +43,8 @@ const handler = NextAuth({
 
     )
   ],
+  pages:{
+    error:"/dashboard/login",
+  },
 })
 export {handler as POST, handler as GET}
