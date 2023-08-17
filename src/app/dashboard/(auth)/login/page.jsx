@@ -7,14 +7,18 @@ import { useRouter } from 'next/navigation'
 const page = () => {
   const router = useRouter()
   const {data,status} = useSession()
+  if(status === 'authenticated') { 
+      
+    return(router.push("/dashboard"))}
   const handleForm = async (e)=>{
     e.preventDefault()
    
     const email = e.target[0].value
     const password = e.target[1].value
     signIn("credentials", {email,password}) 
-    if(status === 'authenticated') { router.push("/dashboard")}
+    
   }
+  
   return (
     <div>
        <div >
