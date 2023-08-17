@@ -9,8 +9,6 @@ export const GET = async(request)=>{
     const username = url.searchParams.get("username")
 try{
 
-
-
 const posts = await Post.find(username && {username})
 console.log("cjecling")
 return  NextResponse.json(posts,{status:200})
@@ -21,3 +19,16 @@ return  NextResponse.json(posts,{status:200})
 }
 }
     
+export const POST = async(request)=>{
+
+
+try {
+    const body = await request.json()
+    
+    const newPost = new Post(body)
+    await newPost.save()
+    return NextResponse.json("Post created",{status:201})
+} catch (error) {
+    return NextResponse.json(error,{status:500})
+}
+}
