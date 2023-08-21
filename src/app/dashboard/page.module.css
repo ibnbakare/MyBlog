@@ -1,6 +1,68 @@
 .container{
 display: flex;
 align-items: center;
+gap:100px;
+}
+.post{
+    flex:1;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+.new{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid blue;
+}
+.imgContainer{
+    width:200px;
+    height: 450px;
+    position: relative; 
+    /* top:0px; */
+    /* left:200px; */
+    border:2px green solid;
+}
+
+.img{
+    object-fit: cover;
+  
+}
+
+.delete{
+    color: red;
+    cursor: pointer;
+}
+.input{
+    padding: 5px;
+    border:2px solid grey;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 19px;
+    background-color: transparent;
+    color: #bbb;
+
+}
+.textArea{
+    padding: 5px;
+    border:2px solid grey;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #bbb;
+    /* font-size: 20px; */
+}
+
+.button{
+    padding:16px;
+    cursor: pointer;
+    background-color: #53c28b;
+    border:none;
+    color:#eee;
+    font-weight: bold;
 }
 .divA{
     width: 30px;

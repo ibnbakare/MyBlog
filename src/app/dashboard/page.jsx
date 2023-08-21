@@ -33,7 +33,7 @@ const Dashboard = () => {
   const router = useRouter()
   console.log(session)
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher)
+  const { data, error, mutate, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher)
   console.log(data)
 
   if (session.status === "loading") {
@@ -61,10 +61,24 @@ const Dashboard = () => {
             content,
             username: session.data.user.name
           })
-        })
+        });
+        mutate();
       } catch (error) {
         console.log("this is FE error")
       }
+    }
+    const handleDelete =(id)=>{
+      try {
+        fetch(`/api/posts/${id}`,
+        {
+          method:"DELETE"
+        }
+        );
+        mutate()
+      } catch (error) {
+        console.log(error)
+      }
+      
     }
 
     return (
@@ -76,21 +90,22 @@ const Dashboard = () => {
 
              <div className={styles.post} key={post._id}>
                 <div className={styles.imgContainer}>
-                  <Image
+                  <Image className={styles.img}
                     alt=''
                     src={post.img}
                     width={240}
                     height={400}
                   />
-                  <h2 className={styles.postTitle}>post.title</h2>
-                  <span className={styles.delete}>X</span>
-                </div>
+                  </div>
+                  <h2 className={styles.postTitle}>{post.title}</h2>
+                  <span className={styles.delete} onClick={()=>handleDelete(post._id)}>X</span>
+                
             </div>
 
             ))}
 
-        <div className={styles.new}>
-          <form onSubmit={handleSubmit}>
+       
+          <form className={styles.new} onSubmit={handleSubmit}>
             <h2> Add new Post</h2>
             <input type='text' placeholder='title' className={styles.input} />
             <input type='text' placeholder='desc' className={styles.input} />
@@ -105,7 +120,7 @@ const Dashboard = () => {
             </textarea>
             <button className={styles.button} >Send</button>
           </form>
-        </div>
+       
 
 
 

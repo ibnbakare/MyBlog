@@ -16,3 +16,14 @@ return  NextResponse.json(post,{status:200})
 }
 }
     
+export  const DELETE = async(request,{params})=>{
+try{
+    const {id} = params
+
+    await Post.findByIdandDelete(id)
+    return NextResponse.json("Post has been deleted",{status:200})
+}catch(err){
+    return NextResponse.json("err",{status:500})
+}
+}
+    
