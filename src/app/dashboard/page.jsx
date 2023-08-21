@@ -83,27 +83,28 @@ const Dashboard = () => {
 
     return (
     <div className={styles.container}>
+      <div className={styles.par}>
         {isLoading ? "Data is Loading" :
           data === "null" ? " No Post" :
 
             data?.map((post) => (
-
+                
              <div className={styles.post} key={post._id}>
                 <div className={styles.imgContainer}>
                   <Image className={styles.img}
                     alt=''
                     src={post.img}
-                    width={240}
-                    height={400}
+                    width={200}
+                    height={100}
                   />
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <span className={styles.delete} onClick={()=>handleDelete(post._id)}>X</span>
                 
             </div>
-
+            
             ))}
-
+</div>
        
           <form className={styles.new} onSubmit={handleSubmit}>
             <h2> Add new Post</h2>

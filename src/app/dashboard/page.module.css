@@ -1,12 +1,17 @@
 .container{
 display: flex;
-align-items: center;
+
 gap:100px;
 }
-.post{
+.par{
+    display:flex ;
+    flex-direction: column;
     flex:1;
-    display: flex;
+}
+.post{
     
+    display: flex;
+   
     align-items: center;
     justify-content: space-between;
     margin: 50px 0px;
@@ -20,15 +25,15 @@ gap:100px;
 }
 .imgContainer{
     width:200px;
-    height: 450px;
-    position: relative; 
+    height: 100px;
+    /* position: relative;  */
     /* top:0px; */
     /* left:200px; */
     border:2px green solid;
 }
 
 .img{
-    object-fit: cover;
+    object-fit:fill;
   
 }
 
